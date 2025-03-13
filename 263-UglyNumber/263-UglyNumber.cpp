@@ -4,15 +4,12 @@ public:
         if(n<=0) return false;
         if(n==1) return true;
 
-        while(n%2==0){
-            n/=2;
+       for(int i=2;i<=5;i++){
+        if(i==4) continue;
+        while(n%i==0){
+            n/=i;
         }
-        while(n%3==0){
-            n/=3;
-        }
-        while(n%5==0){
-            n/=5;
-        }
+       }
         return n==1;
     }
 };
