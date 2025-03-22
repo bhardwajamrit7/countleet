@@ -1,21 +1,12 @@
-// Last updated: 3/21/2025, 11:51:20 PM
+// Last updated: 3/22/2025, 11:15:21 PM
 class Solution {
 public:
-   int firstMissingPositive(vector<int>& nums) {
-    int n = nums.size();
-    
-    for (int i = 0; i < n; i++) {
-        while (nums[i] > 0 && nums[i] <= n && nums[nums[i] - 1] != nums[i]) {
-            swap(nums[i], nums[nums[i] - 1]);
-        }
+    vector<double> convertTemperature(double celsius) {
+        vector<double>ans;
+        double kelvin=celsius+273.15;
+        ans.push_back(kelvin);
+        double Fahrenheit=(celsius*1.80)+32.00;
+        ans.push_back(Fahrenheit);
+        return ans;
     }
-    
-    for (int i = 0; i < n; i++) {
-        if (nums[i] != i + 1) {
-            return i + 1;
-        }
-    }
-    
-    return n + 1;
-}
 };
