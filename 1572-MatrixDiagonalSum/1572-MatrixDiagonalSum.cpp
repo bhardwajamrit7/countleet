@@ -1,4 +1,4 @@
-// Last updated: 6/26/2025, 2:39:12 PM
+// Last updated: 6/26/2025, 2:44:06 PM
 class Solution {
 public:
     int diagonalSum(vector<vector<int>>& mat) {
@@ -7,20 +7,15 @@ public:
         if(n==1) return mat[0][0];
         int i=0;
         int k=n-1;
-       while(i<=n){
-         if(k<0) break;
-        for(int j=0;j<n;j++){
-            if(i==j){
-                sum+=mat[i][j];
-            }
-        }
-
+        int j=0;
+       while(i<=n &&j<=n && k>=0){
+        //  if(k<0) break;
+        sum+=mat[i][j]; 
         sum+=mat[i][k];   
         k--;
         i++;
-        cout<<sum<<endl;
+        j++; 
        }
-       cout<<sum<<" ";
        if(n%2!=0){
         sum-=mat[n/2][n/2];
        }
