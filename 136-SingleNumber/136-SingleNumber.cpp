@@ -1,14 +1,14 @@
+// Last updated: 7/15/2025, 2:59:08 PM
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int n=nums.size();
-        sort(nums.begin(),nums.end());
-        if(n==1) return nums[0];
-        for(int i=0;i<n;i+=2){
-            if(nums[i]!=nums[i+1]){
-            return nums[i];
-            }
+        set<int> s;
+        for (int num : nums) {
+            if (s.find(num) == s.end())
+                s.insert(num);
+            else
+                s.erase(num);
         }
-        return 0;
+        return *s.begin();
     }
 };
