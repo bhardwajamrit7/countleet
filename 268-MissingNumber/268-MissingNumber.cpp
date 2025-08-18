@@ -1,14 +1,14 @@
-// Last updated: 6/16/2025, 11:47:16 AM
+// Last updated: 8/18/2025, 7:06:46 PM
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
         int n=nums.size();
-        for(int i=0;i<n;i++){
-            if(nums[i]!=i){
-                return i;
-            }
+
+        int total=n*(n+1)/2;
+        int sum=0;
+        for(auto c:nums){
+            sum+=c;
         }
-        return n;
+        return total-sum;
     }
 };
