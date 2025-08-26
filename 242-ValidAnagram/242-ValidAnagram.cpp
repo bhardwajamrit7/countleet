@@ -1,11 +1,13 @@
-// Last updated: 6/16/2025, 11:47:19 AM
+// Last updated: 8/26/2025, 9:06:12 PM
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
-        int mx=max(s.size(),t.size());
-       if(s==t) return true;
-       else return false;
+        map<char,int>mp,mp2;
+        
+        for(auto c:s)mp[c]++;
+        for(auto c:t)mp2[c]++;
+
+        if(mp==mp2) return true;
+        else return false;
     }
 };
