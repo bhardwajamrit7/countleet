@@ -1,9 +1,35 @@
+// Last updated: 8/31/2025, 9:06:18 PM
 class Solution {
 public:
     int divide(int dividend, int divisor) {
-        long long int quotient= (long long int) dividend/divisor;
-        if(quotient>INT_MAX) return INT_MAX;
-        if(quotient<INT_MIN) return INT_MIN;
-        return quotient;
+        if (dividend == INT_MIN && divisor == -1) 
+            return INT_MAX;
+
+        bool negative = (dividend < 0) ^ (divisor < 0);
+
+        long long a = dividend;
+        long long b = divisor;
+
+        a = (a < 0) ? -a : a;
+        b = (b < 0) ? -b : b;
+
+        long long result = 0;
+
+        while (a >= b) {
+            long long temp = b, multiple = 1;
+            while (a >= (temp << 1)) {
+                temp <<= 1;
+                multiple <<= 1;
+            }
+            a -= temp;
+            result += multiple;
+        }
+
+        if (negative) result = -result;
+
+        if (result > INT_MAX) return INT_MAX;
+        if (result < INT_MIN) return INT_MIN;
+
+        return (int)result;
     }
 };
