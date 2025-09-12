@@ -1,4 +1,4 @@
-// Last updated: 9/12/2025, 11:42:39 PM
+// Last updated: 9/13/2025, 12:47:05 AM
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -6,7 +6,7 @@ public:
         int n=s.size();
         int l=0,r=0,maxLen=0;
         while(r<n){
-            if(hashTable[s[r]]!=-1){
+            if(hashTable[s[l]]!=-1){
                 if(hashTable[s[r]]>=l){
                     l=hashTable[s[r]]+1;
                 }
